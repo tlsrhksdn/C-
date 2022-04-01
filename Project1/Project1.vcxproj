@@ -18,6 +18,17 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\1장\1_C++ 기본.cpp" />
+    <ClCompile Include="..\2장\2_C++ 기본.cpp" />
+    <ClCompile Include="..\3장\3장_클래스와 객체.cpp" />
+    <ClCompile Include="예제 3-11 실습.cpp" />
+    <ClCompile Include="예제 3-11_adder.cpp" />
+    <ClCompile Include="예제 3-11_Calculator.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Adder.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
@@ -138,11 +149,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="1_C++ 기본.cpp" />
-    <ClCompile Include="2_C++ 기본.cpp" />
-    <ClCompile Include="3장_클래스와 객체.cpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
