@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="4장.cpp">
+    <ClCompile Include="객체_20203350_신관우.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

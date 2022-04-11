@@ -370,6 +370,124 @@
 //음수가 입력되면 프로그램은 종료
 
 
+//#include<iostream>
+//using namespace std;
+//
+//class Circle {
+//	int radius;
+//public:
+//	Circle();
+//	Circle(int r);
+//	~Circle();
+//	void setRadius(int r) { radius = r; }
+//	double getArea() { return 3.14 * radius * radius; }
+//};
+//Circle::Circle() {
+//	radius = 1;
+//	cout << "생성자 실행 radius = " << radius << endl;
+//}
+//Circle::Circle(int r) {
+//	radius = r;
+//	cout << "생성자 실행 radius = " << radius << endl;
+//}
+//Circle::~Circle() {
+//	cout << "소멸자 실행 radius = " << radius << endl;
+//}
+//
+//int main() {
+//	int radius;
+//	while (true) {
+//		cout << "정수 반지름 입력(음수이면 종료) >> ";
+//		cin >> radius;
+//		if (radius < 0)
+//			break;
+//		Circle* circle = new Circle(radius);
+//
+//		cout << "원의 면적은 " << circle->getArea() << endl;
+//		delete circle;
+//	}
+//}
+
+//객체 배열의 동적 생성 및 반환
+//클래스이름 *포인터변수=new 클래스이름[배열 크기];
+//delete [] 포인터변수;// 포인터변수가 가리키는 객체 배열을 반환
+
+//객체 배열의 사용, 배열의 반환과 소멸자
+//동적으로 생성된 배열도 보통 배열처럼 사용
+
+//포인터로 배열 접근
+//배열 소멸
+
+//예제 4-9.Circle 배열의 동적 생성 및 반환
+
+//#include<iostream>
+//using namespace std;
+//
+//class Circle {
+//	int radius;
+//public:
+//	Circle();
+//	Circle(int r);
+//	~Circle();
+//	void setRadius(int r) { radius = r; }
+//	double getArea() { return 3.14 * radius * radius; }
+//};
+//Circle::Circle() {
+//	radius = 1;
+//	cout << "생성자 실행 radius = " << radius << endl;
+//}
+//Circle::Circle(int r) {
+//	radius = r;
+//	cout << "생성자 실행 radius = " << radius << endl;
+//}
+//Circle::~Circle() {
+//	cout << "소멸자 실행 radius = " << radius << endl;
+//}
+//
+
+//생성자 실행 radius = 1​
+//
+//생성자 실행 radius = 1​
+//
+//생성자 실행 radius = 1​
+//
+//314​
+//
+//1256​
+//
+//2826​
+//
+//314​
+//
+//1256​
+//
+//2826​
+//
+//소멸자 실행 radius = 30​
+//
+//소멸자 실행 radius = 20​
+//
+//소멸자 실행 radius = 10
+
+//int main() {
+//	Circle* pArray = new Circle[3];
+//	pArray[0].setRadius(10);
+//	pArray[1].setRadius(20);
+//	pArray[2].setRadius(30);
+//
+//	for (int i = 0;i < 3;i++)
+//		cout << pArray[i].getArea() << endl;
+//	Circle* p = pArray;  //포인터 p에 배열의 주소값으로 설정
+//	for (int i = 0;i < 3;i++) {
+//		cout << p->getArea() << "\n";
+//		p++;
+//	}
+//
+//	delete[] pArray;
+//}
+
+//예제 4-10. 객체 배열의 동적 생성과 반환 응용
+
 #include<iostream>
 using namespace std;
 
@@ -377,33 +495,121 @@ class Circle {
 	int radius;
 public:
 	Circle();
-	Circle(int r);
-	~Circle();
+	~Circle(){}
 	void setRadius(int r) { radius = r; }
-	double getArea() { return 3.14 * radius * radius; }
+	double getArea() {
+		return 3.14 * radius * radius;
+	}
 };
 Circle::Circle() {
 	radius = 1;
-	cout << "생성자 실행 radius = " << radius << endl;
 }
-Circle::Circle(int r) {
-	radius = r;
-	cout << "생성자 실행 radius = " << radius << endl;
-}
-Circle::~Circle() {
-	cout << "소멸자 실행 radius = " << radius << endl;
-}
+//원의 개수를 입력받고 Circle 배열을 동적 생성하라
+//반지름 값을 입력받아 Circle 배열에 저장하고
+//면적이 100부터 200 사이인 원의 개수를 출력
 
-int main() {
-	int radius;
-	while (true) {
-		cout << "정수 반지름 입력(음수이면 종료) >> ";
-		cin >> radius;
-		if (radius < 0)
-			break;
-		Circle* circle = new Circle(radius);
+//생성하고자 하는 원의 개수 ? 4​
+//원1 : 5​
+//원2 : 6​
+//원3 : 7​
+//원4 : 8​
+//78.5 113.04 153.86 200.96​
+//면적이 100에서 200 사이인 원의 개수는 2​
+//int main() {
+//	int n, radius;
+//
+//	cout << "생성하고자 하는 원의 개수 ? ";
+//	cin >> n;
+//
+//	Circle* pArray = new Circle[n];
+//	for (int i = 0;i < n;i++) {
+//		cout << "원" << i + 1 << " : ";
+//		cin >> radius;
+//		pArray[i].setRadius(radius);
+//	}
+//	int count = 0;
+//	for (int i = 0;i < n;i++) {
+//		cout << pArray[i].getArea()<<" ";
+//		if ((pArray[i].getArea() >= 100) && (pArray[i].getArea() <= 200))
+//			count++;
+//	}
+//	cout << "\n" << "면적이 100에서 200 사이인 원의 개수는 " << count << endl;
+//	delete[] pArray;
+//}
 
-		cout << "원의 면적은 " << circle->getArea() << endl;
-		delete circle;
-	}
-}
+//this 포인터
+//this
+//포인터, 객체 자신 포인터
+//클래스의 멤버 함수 내에서만 사용
+//개발자가 선언하는 변수가 아니고, 컴파일러가 선언한 변수
+//멤버 함수에 컴파일러에 의해 묵시적으로 삽입 선언되는 매개 변수
+
+//class Circle {
+//	int radius;
+//public:
+//	Circle() { this->radius = 1; }
+//	Circle(int radius) { this->radius = radius; }
+//	void setRadius(int radius) { this->radius = radius; }
+//};
+//
+
+//this와 객체
+//각 객체 속의 this는 다른 객체의 this와 다름
+
+//this가 필요한 경우
+//매개변수의 이름과 멤버 변수의 이름이 같은 경우
+
+//멤버 함수가 객체 자신의 주소를 리턴할 때
+//연산자 중복 시에 매우 필요
+
+//this의 제약 사항
+//멤버 함수가 아닌 함수에서 this 사용 불가
+//static 멤버 함수에서 this 사용 불가
+
+//string 클래스를 이용한 문자열
+//C++ 문자열
+
+//string 클래스
+//C++표준 라이브러리,<string>헤더 파일에 선언
+//가변 크기의 문자열
+//다양한 문자열 연산을 실행하는 연산자와 멤버 함수 포함
+//뮨자열,스트링,문자열 객체,string 객체 등으로 혼용
+
+//string 객체의 동적 생성
+//new/delete를 이용하여 문자열을 동적 생성/반환 가능
+//
+//string* p = new string("C++");  //스트링 객체 동적 생성
+//
+//cout << *p;  //"C++"출력
+//p->append("Great!");   //p가 가리키는 스트림이 "C++ Great!!"이 됨
+//cout << *p;  //"C++ Great!" 출력
+//
+//delete* p; //스트림 객체 반환
+
+//예제 4-11.string 클래스를 이용한 문자열 생성 및 출력
+//#include<iostream>
+//#include<string>
+//using namespace std;
+//
+//int main() {
+//	string str; //빈 문자열을 가진 스트링 객체 생성
+//	string address("서울시 성북구 삼선동 389");
+//	string copyAddress(address);  //address의 문자열을 복사한 스트링 객체 생성
+//
+//	char text[] = { 'L', 'o', 'v', 'e', ',', 'C', '+', '+', '\0' }; //C-스트림
+//	string title(text);  //"Love C++"문자열을 가진 스트링 객체 생성
+//
+//	//ㅡ트링 출력
+//	cout << str << endl; //빈 스트링, 아무 값도 출력되지 않음
+//	cout << address << endl;
+//	cout << copyAddress << endl;
+//	cout << title << endl;
+//}
+
+//예제 4-12.string 배열 선언과 문자열 키 입력 응용
+
+//5개의 string 배열을 선언하고 
+//getline()을 이용하여 문자열을 입력받아 사전 순으로 가장 뒤에 나오는 문자열을 출력하라
+//문자열 비교는 <,> 연산자를 간단히 이용하면 된다
+
+#include<iostream>
