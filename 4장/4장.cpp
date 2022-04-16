@@ -61,7 +61,7 @@
 //배열의 각 객체마다 소멸자 호출, 생성의 반대순으로 소멸
 //c[2]의 소멸자,c[1]의 소멸자, c[0]의 소멸자 실행
 
-//예쩨4-2.Circle 클래스의 배열 선언 및 활용
+//예제 4-2.Circle 클래스의 배열 선언 및 활용
 //#include<iostream>
 //using namespace std;
 //
@@ -79,25 +79,16 @@
 //}
 //
 //int main() {
-//	Circle circleArray[3];    //Circle 객체 배열 생성
+//	Circle circleArray[3];
 //
-//	//배열의 각 원소 객체의 멤버 접근
+//	//뱅려의 각 원소 객체의 멤버 접근
 //	circleArray[0].setRadius(10);
 //	circleArray[1].setRadius(20);
 //	circleArray[2].setRadius(30);
 //
-//	for (int i = 0;i < 3;i++)   //배열의 각 원소 객체의 멤버 접근 
-//		cout << "Circle " << i << "의 면적은 " << circleArray[i].getArea() << endl;
-//
-//	Circle * p;
-//	p = circleArray;
-//
-//	for (int i = 0;i < 3;i++) { //객체 포인터로 배열 접근
-//		cout << "Circle " << i << "의 면적은 " << p->getArea() << endl;
-//		p++;
-//	}
-//	
-//}
+//	for (int i = 0;i < 3;i++)
+//		cout << "Circle " << i << " 의 면적은 " << circleArray[i].getArea() << endl;
+
 
 //객체 배열 생성시 기본 생성자 호출
 //#include<iostream>
@@ -236,24 +227,24 @@
 //기본 타입의 메모리 동적 할당 및 반환
 
 //예제 4-5.정수형 공간의 동적 할당 및 반환 예
+// *p = 5
+//n = 5
+
 //#include<iostream>
 //using namespace std;
 //
 //int main() {
-//	int* p;
-//
-//	p = new int;  //int 타입 1개 할당
-//	if (!p) {  //p가 NUL이면 메모리 할당 실패
+//	int* p = new int;
+//	if (!p) {
 //		cout << "메모리를 할당할 수 없습니다.";
 //		return 0;
 //	}
-//
-//	*p = 5;  //할당 받은 정수 공간에 5 삽입
+//	*p = 5;//할당받은 정수 공간에 5 삽입
 //	int n = *p;
 //	cout << "*p = " << *p << "\n";
 //	cout << "n = " << n << "\n";
 //
-//	delete p;  //할당 받은 메모리 반환
+//	delete p;
 //}
 
 //delete 사용 시 주의 사항
@@ -301,7 +292,7 @@
 //
 //	cout << "입력한 수들의 합: " << hap << endl;
 //
-//	delete[]p;
+////	delete[] p;
 //}
 
 //동적 할당 메모리 초기화 및 delete 시 유의 사항
@@ -419,7 +410,7 @@
 //배열 소멸
 
 //예제 4-9.Circle 배열의 동적 생성 및 반환
-
+//
 //#include<iostream>
 //using namespace std;
 //
@@ -432,78 +423,58 @@
 //	void setRadius(int r) { radius = r; }
 //	double getArea() { return 3.14 * radius * radius; }
 //};
+//
 //Circle::Circle() {
 //	radius = 1;
 //	cout << "생성자 실행 radius = " << radius << endl;
 //}
+//
 //Circle::Circle(int r) {
 //	radius = r;
 //	cout << "생성자 실행 radius = " << radius << endl;
 //}
+//
 //Circle::~Circle() {
 //	cout << "소멸자 실행 radius = " << radius << endl;
 //}
 //
-
-//생성자 실행 radius = 1​
-//
-//생성자 실행 radius = 1​
-//
-//생성자 실행 radius = 1​
-//
-//314​
-//
-//1256​
-//
-//2826​
-//
-//314​
-//
-//1256​
-//
-//2826​
-//
-//소멸자 실행 radius = 30​
-//
-//소멸자 실행 radius = 20​
-//
-//소멸자 실행 radius = 10
-
 //int main() {
-//	Circle* pArray = new Circle[3];
+//	Circle* pArray = new Circle[3]; //객체 배열 생성
+//
 //	pArray[0].setRadius(10);
 //	pArray[1].setRadius(20);
 //	pArray[2].setRadius(30);
 //
-//	for (int i = 0;i < 3;i++)
+//	for (int i = 0;i < 3;i++) {
 //		cout << pArray[i].getArea() << endl;
-//	Circle* p = pArray;  //포인터 p에 배열의 주소값으로 설정
+//	}
+//	Circle* p = pArray;
 //	for (int i = 0;i < 3;i++) {
 //		cout << p->getArea() << "\n";
 //		p++;
 //	}
-//
-//	delete[] pArray;
+//	delete[]pArray;
 //}
 
 //예제 4-10. 객체 배열의 동적 생성과 반환 응용
 
-#include<iostream>
-using namespace std;
+//#include<iostream>
+//using namespace std;
+//
+//class Circle {
+//	int radius;
+//public:
+//	Circle();
+//	~Circle(){}
+//	void setRadius(int r) { radius = r; }
+//	double getArea() {
+//		return 3.14 * radius * radius;
+//	}
+//};
+//Circle::Circle() {
+//	radius = 1;
+//}
 
-class Circle {
-	int radius;
-public:
-	Circle();
-	~Circle(){}
-	void setRadius(int r) { radius = r; }
-	double getArea() {
-		return 3.14 * radius * radius;
-	}
-};
-Circle::Circle() {
-	radius = 1;
-}
 //원의 개수를 입력받고 Circle 배열을 동적 생성하라
 //반지름 값을 입력받아 Circle 배열에 저장하고
 //면적이 100부터 200 사이인 원의 개수를 출력
@@ -575,6 +546,27 @@ Circle::Circle() {
 //다양한 문자열 연산을 실행하는 연산자와 멤버 함수 포함
 //뮨자열,스트링,문자열 객체,string 객체 등으로 혼용
 
+//문자열 생성
+// string str;  //빈 문자열을 가진 스트링 객체
+// string address("서울시 성북구 삼선동 389") //문자열 리터럴로 초기화
+// string copyAddress(address); //address를 복사한 copyAddress 생성
+// 
+// C-스트링으로부터 스트링 객체 생성
+// char text[]={'L','o','v','e',' ','C','+','+','\0'};
+// strint title(text); //"Love C++" 문자열을 가진 title 생성
+// 
+// 문자열 출력-cout와 << 연산자
+// cout<<address<<endl; //"서울시 성북구 삼선동 389" 출력
+// cout<<title<<endl;  //"Love C++" 출력
+// 
+// 문자열 입력-cin과 >> 연산자
+// string name;
+// cin>>name;   //공백이 입력되면 하나의 문자열로 입력
+// 
+// 문자열 숫자 변환-stoi() 함수 이용
+// string s="123";
+// int n=stoi(s);  //n은 정수 123
+// 
 //string 객체의 동적 생성
 //new/delete를 이용하여 문자열을 동적 생성/반환 가능
 //
@@ -595,21 +587,15 @@ Circle::Circle() {
 //	string str; //빈 문자열을 가진 스트링 객체 생성
 //	string address("서울시 성북구 삼선동 389");
 //	string copyAddress(address);  //address의 문자열을 복사한 스트링 객체 생성
-//
-//	char text[] = { 'L', 'o', 'v', 'e', ',', 'C', '+', '+', '\0' }; //C-스트림
+//	
+//	char text[] = { 'L','o','v','e','C','+','+','\0' };
 //	string title(text);  //"Love C++"문자열을 가진 스트링 객체 생성
 //
-//	//ㅡ트링 출력
-//	cout << str << endl; //빈 스트링, 아무 값도 출력되지 않음
+//	cout << str << endl; //빈 스트링. 아무 값도 출력되지 않음
 //	cout << address << endl;
 //	cout << copyAddress << endl;
 //	cout << title << endl;
 //}
 
-//예제 4-12.string 배열 선언과 문자열 키 입력 응용
 
-//5개의 string 배열을 선언하고 
-//getline()을 이용하여 문자열을 입력받아 사전 순으로 가장 뒤에 나오는 문자열을 출력하라
-//문자열 비교는 <,> 연산자를 간단히 이용하면 된다
 
-#include<iostream>
