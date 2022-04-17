@@ -54,6 +54,9 @@
     <ClCompile Include="3-11.헤더 파일과 cpp 파일로 분리하기.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="OOP 단계별 프로젝트 1단계.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Adder.h">

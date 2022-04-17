@@ -16,14 +16,14 @@
 
 
 //#include<iostream>
-//#include<cstring>
+//#include<string>
 //using namespace std;
 //
 //int main() {
-//	string str;
+//	string s;
 //
 //	cout << "문자열을 입력하세요(한글 안됨) "<<endl;
-//	getline(cin, s, "\n");
+//	getline(cin,s);
 //	int len = s.length();  //문자열의 길이
 //	
 //	for (int i = 0;i < len;i++) {
