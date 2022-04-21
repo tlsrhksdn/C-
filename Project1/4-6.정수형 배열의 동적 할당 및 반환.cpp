@@ -8,3 +8,20 @@
 //4번째 정수 : 9
 //평균 = 7
 
+//#include<iostream>
+//using namespace std;
+//
+//int main() {
+//	int n;
+//	cout << "입력할 정수의 개수는 ? ";
+//	cin >> n;
+//	int* p = new int;
+//	int sum=0;
+//	for (int i = 0;i < n;i++) {
+//		cout << i + 1 << "번쨰 정수 : "; cin >> p[i];
+//		sum += p[i];
+//	}
+//	int avg = sum / n;
+//	cout << "평균 = " << avg << endl;
+//}
+//

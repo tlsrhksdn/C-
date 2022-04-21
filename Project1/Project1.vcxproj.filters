@@ -57,6 +57,18 @@
     <ClCompile Include="OOP 단계별 프로젝트 1단계.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="윤성우 C++_4단윈 문제2.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="윤성우 C++ 4_3.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="모두의 코드 4-1.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="모두의 코드 4-2.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Adder.h">

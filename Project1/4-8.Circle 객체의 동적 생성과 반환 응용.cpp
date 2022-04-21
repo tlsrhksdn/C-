@@ -28,7 +28,7 @@
 //Circle::~Circle() {
 //	cout << "소멸자 실행 radius = " << radius << endl;
 //}
-//
+////
 ////정수 반지름 입력(음수이면 종료) >> 5
 ////생성자 실행 radius = 5
 ////원의 면적은 78.5
@@ -38,17 +38,22 @@
 ////원의 면적은 254.34
 ////소멸자 실행 radius = 9
 ////정수 반지름 입력(음수이면 종료) >> -1
-//
+////
 //int main() {
 //	while (true) {
-//		int r;
-//		cout << "정수 반지름 입력(음수이면 종료) >> ";
-//		cin >> r;
-//		if (r < 0)
+//		int radius;
+//		cout << "정수 반지름 입력(음수이면 종료) >>";
+//		cin >> radius;
+//
+//		if (radius < 0)
 //			break;
-//		Circle* p = new Circle;
-//		p->setRadius(r);
-//		cout << "원의 면적은 " << p->getArea() << endl;
+//
+//		Circle* p = new Circle(radius);
+//		cout << "원의 면적은 " << p->getArea() <<endl;
 //		delete p;
 //	}
-//}
+//
+//
+
+
+

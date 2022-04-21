@@ -29,10 +29,18 @@
     <ClCompile Include="4-8.Circle 객체의 동적 생성과 반환 응용.cpp" />
     <ClCompile Include="Adder.cpp" />
     <ClCompile Include="Calculator.cpp" />
-    <ClCompile Include="OOP 단계별 프로젝트 1단계.cpp" />
+    <ClCompile Include="OOP 단계별 프로젝트 1단계.cpp">
+      <SDLCheck Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</SDLCheck>
+    </ClCompile>
+    <ClCompile Include="모두의 코드 4-1.cpp" />
+    <ClCompile Include="모두의 코드 4-2.cpp" />
     <ClCompile Include="예제 3-6.Rectangle 클래스 만들기.cpp" />
     <ClCompile Include="예제 4-12.string 배열 선언과 문자열 키 입력 응용.cpp" />
     <ClCompile Include="예쩨 4-13.문자열을 입력 받고 회전시키기.cpp" />
+    <ClCompile Include="윤성우 C++ 4_3.cpp">
+      <SDLCheck Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</SDLCheck>
+    </ClCompile>
+    <ClCompile Include="윤성우 C++_4단윈 문제2.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Adder.h" />
