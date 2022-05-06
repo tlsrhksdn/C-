@@ -35,6 +35,7 @@
     <ClCompile Include="모두의 코드 4-1.cpp" />
     <ClCompile Include="모두의 코드 4-2.cpp" />
     <ClCompile Include="모두의 코드 4-4.cpp" />
+    <ClCompile Include="모두의 코드 4-5.cpp" />
     <ClCompile Include="모두의 코드 4_3.cpp" />
     <ClCompile Include="소스.cpp" />
     <ClCompile Include="예제 3-6.Rectangle 클래스 만들기.cpp" />
