@@ -323,28 +323,236 @@
 
 //키보드로부터 반지름 값을 읽어 Circle 객체에 반지름을 설정하는 readRadius() 함수를 작성하라.
 
+//#include<iostream>
+//using namespace std;
+//
+//class Circle {
+//	int radius;
+//public:
+//	Circle() { radius = 1; }
+//	Circle(int radius) { this->radius = radius; }
+//	void setRadius(int radius) { this->radius = radius; }
+//	double getArea() { return 3.14 * radius * radius; }
+//};
+//
+//void readRadius(Circle& c) {
+//	int radius;
+//	cout << "정수 값으로 반지름을 입력하세요>>";
+//	cin >> radius;
+//	c.setRadius(radius);
+//}
+//
+//int main() {
+//	Circle donut;
+//	readRadius(donut);
+//	cout << "donut의 면적 = " << donut.getArea() << endl;
+//}
+
+//참조 리턴
+//C언어의 함수 리턴
+//함수는 반드시 값만 리턴
+//기본 타입 값:int,char,double 등
+//포인터 값
+// 
+//C++의 함수 리턴
+//함수는 값 외에 참조 리턴 가능
+//참조 리턴
+//변수 등과 같이 현존하는 공간에 대한 참조 리턴
+//변수의 값을 리턴하는 것이 아님
+
+//값을 리턴하는 함수 vs 참조를 리턴하는 함수
+
+//문자 갑을 리턴하는 get()
+
+//char c = 'a';
+//char get() { //char 리턴
+//	return c; //변수 'c'의 문자('a') 리턴
+//}
+//
+//char a = get(); //a='a'가 됨
+//
+//get() = 'b'; //컴파일 오류
+//
+////char 타입의 참조(공간)을 리턴하는 find()
+//
+//char c = 'a';
+//
+//char& find() {  //char 타입의 참조 리턴
+//	return c; //변수 c에 대한 참조 리턴
+//}
+//
+//char a = find();  //a='a'가 됨
+//
+//char& ref = find();  //ref는 c에 대한 참조
+//ref = 'M';  //c-'M'
+//
+//find = 'b'; //c='b'가 됨
+
+//예제 5-8.간단한 참조 리턴 사례
+//#include<iostream>
+//using namespace std;
+//
+//char& find(char a[], int index) {
+//	return s[index];  //참조 리턴
+//}
+//
+//int main() {
+//	char name[] = "Mike";
+//	cout << name << endl;
+//
+//	find(name, 0) = '5';  //name[i]='5'로 변경
+//	cout << name << endl;
+//
+//	char& ref = find(name, 2);  //ref는 name[2] 참조
+//	ref = 't'; //name='Site'
+//	cout << name << endl;
+//}
+
+//C++에서 얕은 복사와 깊은 복사
+// 
+//얕은 복사(shallow copy)
+//객체 복사 시, 객체의 멤버를 1:1로 복사
+//객체의 멤버 변수에 동적 메모리가 할당된 경우
+//사본은 원본 객체가 할당받은 메모리를 공유하는 문제 발생
+
+//깊은 복사
+//객체 복사 시 객체의 멤버를 1:1대로 복사
+//객체의 멤버 변수에 동적 메모리가 할당된 경우
+//사본은 원본이 가진 메모리 크기만큼 별도로 동적 할당
+//원본의 동적 메모리에 있는 내용을 사본에 복사
+
+//완전한 형태의 복사
+//사본과 원본은 메모리를 공유하는 문제 없음
+
+//복사 생성자
+//객체의 복사 생성시 호출되는 특별한 생성자
+//특징
+//한 클래스에 오직 한 개만 선언 가능
+//복사 생성자는 보통 생성자와 클래스 내에 중복 선언 가능
+//모양
+//클래스에 대한 참조 매개 변수를 가지는 독특한 생성자
+
+//복사 생성자 선언
+//class Circle {
+//	Circle(class Circle& c); //복사 생성자 선언
+//};
+//
+//Circle::Circle(const Circle& c);  //복사 생성자 구현
+
+//예제 5-9.Circl의 복사 생성자와 객체 복사
+//#include<iostream>
+//using namespace std;
+//
+//class Circle {
+//	int radius;
+//public:
+//	Circle(const Circle& c);  //복사 생성자 선언
+//	Circle() { radius = 1; }
+//	Circle(int radius) { this->radius = radius; }
+//	double getArea() { return 3.14 * radius * radius; }
+//};
+//
+//Circle::Circle(const Circle& c) {   //복사 생성자 구현
+//	this->radius = c.radius;
+//	cout << "복사 생성자 실행 radius = " << radius << endl;
+//}
+//
+//int main() {
+//	Circle src(30);  //src 객체의 보통 생성자 호출
+//	Circle dest(src);  //dest 객체의 복사 생성자 호출
+//
+//	cout << "원본의 면적 = " << src.getArea() << endl;
+//	cout << "사본의 면적 = " << dest.getArea() << endl;
+//}
+//
+
+//디폴트 복사 생성자
+//복사 생성자가 선언되어 있지 않는 클래스
+//컴파일러는 자동으로 디폴트 복사 생성자 삽입
+
+//예제 5-10.얕은 복사 생성자를 사용하여 프로그램이 비정상 종료되는 경우
+
+//#define CRT_SECURE_NO_WARNINGS
+//#include<iostream>
+//#include<cstring>
+//using namespace std;
+//
+//class Person {  //Person 클래스 선언
+//	char* name;
+//	int id;
+//public:
+//	Person(int id, const char* name); //생성자
+//	~Person(); //소멸자
+//	void changeName(const char* name);
+//	void show() { cout << id << ',' << name << endl; }
+//};
+//Person::Person(int id, const char* name) {
+//	this->id = id;
+//	int len = strlen(name);  //name의 문자 개수
+//	this->name = new char[len + 1];  //name 문자열 공간 할당
+//	strcpy(this->name, name); //name에 문자열 복사
+//}
+//
+//Person::~Person(){ //소멸자
+//	if (name) //만일 name에 동적 할당된 배열이 있으면
+//		delete[] name; //동적 할당 메모리 소멸,name 메모리 반환
+//}
+//
+//void Person::changeName(const char *name){ //이름 변경
+//	if (strlen(name) > strlen(this->name))
+//		return;
+//	strcpy(this->name, name);
+//}
+//int main() {
+//	Person father(1, "Kitae");  //1.father 객체 생성
+//	Person daughter(father);    //2. daughter 객체 복사 생성, 복사 생성자 호출
+//
+//	cout << "daughter 객체 생성 직후 ----" << endl;
+//	father.show();     //3.father 객체 출력
+//	daughter.show();   //33.daughter 객체 출력
+//
+//	daughter.changeName("Grace");  //4.daughter의 이름을 "Grace"로 변경
+//	cout << "daughter 이름을 Grace로 변경한 후 ----" << endl;  
+//	father.shpw();              //5.father 객체 출력
+//	daughter.show();            //5.daughter 객체 출력
+//
+//	return 0;             //6,7.dughter,father 객체 소멸
+//}
+
+//예제 5-11.깊은 복사 생섲아를 가진 정상적 Person 클래스
+#define _CRT_SECURE_NO_WARNINGS
 #include<iostream>
+#include<cstring>
 using namespace std;
 
-class Circle {
-	int radius;
+class Person { //Person 쿨래스 선언
+	char* name;
+	int id;
 public:
-	Circle() { radius = 1; }
-	Circle(int radius) { this->radius = radius; }
-	~Circle();
-	void setRadius(int radius) { this->radius = radius; }
-	double getArea() { return 3.14 * radius * radius; }
+	Person(int id, const char* name); //생성자
+	Person(const Person& person); //복사 생성자
+	~Person(); //소멸자
+	void changeName(const char* name);
+	void show() { cout << id << "," << name << endl; }
 };
 
-void readRadius(Circle& c) {
-	int radius;
-	cout << "정수 값으로 반지름을 입력하세요>>";
-	cin >> radius;
-	c.setRadius(radius);
+Person::Person(int id, const char* name) {  //생성자
+	this->id = id;
+	int len = strlen(name);  //name의 문자 개수
+	this->name = new char[len + 1];  //name 문자열 공간 할당
+	strcpy(this->name, name);  //name에 문자열 복사
 }
-
-int main() {
-	Circle donut;
-	readRadius(donut);
-	cout << "donut의 면적 = " << donut.getArea() << endl;
+Person::Person(const Person& person){ //복사 생성자
+	this->id = person.id;  //id 값 복사
+	int len = strlen(person.name); //name의 문자 개수
+	this->name = new char[len + 1];  //name을 위한 공간 할당
+	strcpy(this->name, person.name);  //name의 문자열 복사
+	cout << "복사 생성자 실행, 원본 객체의 이름 " << this->name << endl;
+}
+Person::~Person() {  //소멸자
+	if (name) //만일 name에 동적 할당된 배열이 있으면
+		delete[] name;  //동적 할당 메모리 소멸
+}
+void Person::changeName(const char *name){ //이름 변겅
+	if(strlen(name))
 }
