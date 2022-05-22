@@ -520,39 +520,39 @@
 //}
 
 //예제 5-11.깊은 복사 생섲아를 가진 정상적 Person 클래스
-#define _CRT_SECURE_NO_WARNINGS
-#include<iostream>
-#include<cstring>
-using namespace std;
-
-class Person { //Person 쿨래스 선언
-	char* name;
-	int id;
-public:
-	Person(int id, const char* name); //생성자
-	Person(const Person& person); //복사 생성자
-	~Person(); //소멸자
-	void changeName(const char* name);
-	void show() { cout << id << "," << name << endl; }
-};
-
-Person::Person(int id, const char* name) {  //생성자
-	this->id = id;
-	int len = strlen(name);  //name의 문자 개수
-	this->name = new char[len + 1];  //name 문자열 공간 할당
-	strcpy(this->name, name);  //name에 문자열 복사
-}
-Person::Person(const Person& person){ //복사 생성자
-	this->id = person.id;  //id 값 복사
-	int len = strlen(person.name); //name의 문자 개수
-	this->name = new char[len + 1];  //name을 위한 공간 할당
-	strcpy(this->name, person.name);  //name의 문자열 복사
-	cout << "복사 생성자 실행, 원본 객체의 이름 " << this->name << endl;
-}
-Person::~Person() {  //소멸자
-	if (name) //만일 name에 동적 할당된 배열이 있으면
-		delete[] name;  //동적 할당 메모리 소멸
-}
-void Person::changeName(const char *name){ //이름 변겅
-	if(strlen(name))
-}
+//#define _CRT_SECURE_NO_WARNINGS
+//#include<iostream>
+//#include<cstring>
+//using namespace std;
+//
+//class Person { //Person 쿨래스 선언
+//	char* name;
+//	int id;
+//public:
+//	Person(int id, const char* name); //생성자
+//	Person(const Person& person); //복사 생성자
+//	~Person(); //소멸자
+//	void changeName(const char* name);
+//	void show() { cout << id << "," << name << endl; }
+//};
+//
+//Person::Person(int id, const char* name) {  //생성자
+//	this->id = id;
+//	int len = strlen(name);  //name의 문자 개수
+//	this->name = new char[len + 1];  //name 문자열 공간 할당
+//	strcpy(this->name, name);  //name에 문자열 복사
+//}
+//Person::Person(const Person& person){ //복사 생성자
+//	this->id = person.id;  //id 값 복사
+//	int len = strlen(person.name); //name의 문자 개수
+//	this->name = new char[len + 1];  //name을 위한 공간 할당
+//	strcpy(this->name, person.name);  //name의 문자열 복사
+//	cout << "복사 생성자 실행, 원본 객체의 이름 " << this->name << endl;
+//}
+//Person::~Person() {  //소멸자
+//	if (name) //만일 name에 동적 할당된 배열이 있으면
+//		delete[] name;  //동적 할당 메모리 소멸
+//}
+//void Person::changeName(const char *name){ //이름 변겅
+//	if(strlen(name))
+//}

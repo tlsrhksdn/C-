@@ -28,6 +28,7 @@
     <ClCompile Include="4-6.정수형 배열의 동적 할당 및 반환.cpp" />
     <ClCompile Include="4-8.Circle 객체의 동적 생성과 반환 응용.cpp" />
     <ClCompile Include="5장.cpp" />
+    <ClCompile Include="6장.cpp" />
     <ClCompile Include="Adder.cpp" />
     <ClCompile Include="Calculator.cpp" />
     <ClCompile Include="OOP 단계별 프로젝트 1단계.cpp">
