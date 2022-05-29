@@ -19,6 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="7장.cpp" />
+    <ClCompile Include="완성된 문자열 클래스.cpp" />
     <ClCompile Include="외부 소스\모두의 코드\모두의 코드 4-5.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

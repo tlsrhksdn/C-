@@ -212,3 +212,390 @@
 //	Color operator+(Color op2);
 //	bool operator==(Color op2);
 //};
+
+//멤버 함수로 이항 연산자 구현
+//이항 연산자 중복: + 연산자
+
+//class Power {
+//	int kick;
+//	int punch;
+//public:
+//	Power operator+(Power op2);
+//};
+//
+//Power Power::operator+(Power op2) {
+//	Power tmp;
+//	tmp.kick = this->kick + op2.kick;
+//	tmp.punch = this->punch + op2.punch;
+//	return tmp;
+//}
+
+////예제 7-4.두 개의 Power 객체를 더하는 +연산자 작성
+//#include<iostream>
+//using namespace std;
+//
+//class Power {
+//	int kick;
+//	int punch;
+//public:
+//	Power(int kick = 0, int punch = 0) {
+//		this->kick = kick;
+//		this->punch = punch;
+//	}
+//	void show();
+//	Power operator+(Power op2); //+연산자 함수 선언
+//
+//};
+//void Power::show() {
+//	cout << "kick=" << kick << ',' << "punch=" << punch << endl;
+//}
+//Power Power::operator+(Power op2) {
+//	Power tmp; //임시 객체 생성
+//	tmp.kick = this->kick + op2.kick;  //kick 더하기
+//	tmp.punch = this->punch + op2.punch; //punch 더하기
+//	return tmp;
+//}
+//
+//int main() {
+//	Power a(3, 5), b(4, 6), c;
+//	c = a + b;
+//	a.show();
+//	b.show();
+//	c.show();
+//}
+
+//예제 7-5.두 개의 Power 객체를 비교하는 == 연산자 작성
+//#include<iostream>
+//using namespace std;
+//
+//class Power {
+//	int kick;
+//	int punch;
+//public:
+//	Power(int kick = 0, int punch = 0) {
+//		this->kick = kick;
+//		this->punch = punch;
+//	}
+//	void show();
+//	bool operator==(Power op2);  //==연산자 함수 선언
+//};
+//void Power::show() {
+//	cout << "kick=" << kick << ',' << "punch=" << punch << endl;
+//}
+//bool Power::operator==(Power op2) {
+//	if (kick == op2.kick && punch == op2.punch)
+//		return true;
+//	else return false;
+//}
+//int main() {
+//	Power a(3, 5), b(3, 5);
+//	a.show();
+//	b.show();
+//	if (a == b) cout << "두 파워가 같다." << endl;
+//	else cout << "두 파워가 같지 않다." << endl;
+//}
+
+//예제 7-6.두 Power 객체를 더하는 += 연산자 작성
+//#include<iostream>
+//using namespace std;
+//
+//class Power {
+//	int kick;
+//	int punch;
+//public:
+//	Power(int kick = 0, int punch = 0) {
+//		this->punch = punch;
+//		this->kick = kick;
+//	}
+//	void show();
+//	Power& operator+=(Power op2); //+=연산자 함수 선언
+//};
+//
+//void Power::show() {
+//	cout << "kick=" << kick << ',' << "punch=" << punch << endl;
+//}
+//Power& Power::operator+=(Power op2) {
+//	kick = kick + op2.kick;
+//	punch = punch + op2.punch;
+//	return *this;
+//}
+//int main() {
+//	Power a(3, 5), b(4, 6), c;
+//	a.show();
+//	b.show();
+//	c = a += b;
+//	a.show();
+//	c.show();
+//}
+
+//#include<iostream>
+//using namespace std;
+//
+//class Power {
+//	int kick;
+//	int punch;
+//public:
+//	Power(int kick = 0, int punch = 0) {
+//		this->kick = kick; this->punch = punch;
+//	}
+//	void show();
+//	Power operator+(int op2);
+//};
+//void Power::show() {
+//	cout << "kick= " << kick << ',' << "punch=" << punch << endl;
+//}
+//Power Power::operator+(int op2) {
+//	Power tmp;
+//	tmp.kick = kick + op2;
+//	tmp.punch = punch + op2;
+//	return tmp;
+//}
+//int main() {
+//	Power a(3, 5), b;
+//	a.show();
+//	b.show();
+//	b = a + 2;
+//	a.show();
+//	b.show();
+//}
+
+//멤버 함수로 단항 연산자 구현
+// 
+//단항 연산자 중복
+
+//단항 연산자
+//피연산자가 하나 뿐인 연산자
+//연산자 중복 방식은 이항 연산자의 경우와 거의 유사함
+
+//단항 연산자 종류
+//전위 연산자/후위 연산자
+
+//전위 ++연산자 중복
+//class Power {
+//	int kick;
+//	int punch;
+//public:
+//	Power& operator++();
+//};
+//Power& Power::operator++() {
+//	//kick과 punch는 a의 멤버
+//	kick++;
+//	punch++;
+//	return *this;  //변경된 객체 자신의 참조 리턴
+//}
+
+//예제 7-8 전위 ++ 연산자 작성
+//#include<iostream>
+//using namespace std;
+//
+//class Power {
+//	int kick;
+//	int punch;
+//public:
+//	Power(int kick = 0, int punch = 0) {
+//		this->kick = kick; this->punch = punch;
+//	}
+//	void show();
+//	Power& operator++(); //전위 ++연산자 함수 선언
+//};
+//void Power::show() {
+//	cout << "kick=" << kick << ',' << "punch=" << punch << endl;
+//}
+//Power& Power::operator++() {
+//	kick++;
+//	punch++;
+//	return *this;
+//}
+//
+//int main() {
+//	Power a(3, 5), b;
+//	a.show();
+//	b.show();
+//	b = ++a;
+//	a.show();
+//	b.show();
+//}
+
+//예제 7-9.Power 클래스에 ! 연산자 작성
+// ! 연산자를 Power 클래스의 멤버 함수로 작성하라
+// !a는 a의 kick, punch 파워가 모두 0이면 true,아니면 false룰 리턴하라.
+
+//#include<iostream>
+//using namespace std;
+//
+//class Power {
+//	int kick;
+//	int punch;
+//public:
+//	Power(int kick = 0, int punch = 0) {
+//		this->kick = kick; this->punch = punch;
+//	}
+//	void show();
+//	bool operator! (); //! 연산자 함수 선언
+//};
+//
+//void Power::show() {
+//	cout << "kick=" << kick << ',' << "punch=" << punch << endl;
+//}
+//bool Power::operator!() {
+//	if (this->kick == 0 && this->punch == 0) return true;
+//	else return false;
+//}
+//int main() {
+//	Power a(0, 0), b(5, 5);
+//	if (!a) cout << "a의 파워가 0이다." << endl;
+//	else cout << "a의 파워가 0이 아니다." << endl;
+//	if (!b)cout << "b의 파워가 0이다." << endl;
+//	else cout << "b의 파워가 0이 아니다." << endl;
+//}
+
+//후위 연산자 중복, ++ 연산자
+
+//class Power {
+//	int kick;
+//	int punch;
+//public:
+//	Power operator++(int x);
+//};
+//Power Power::operator++(int x) {
+//	Power tmp = *this; //증가 이전 객체 상태 저장
+//	kick++;
+//	punch++;
+//	return tmp; //증가 이전의 객체(객체 a) 리턴
+//}
+
+//예제 7-10. 후위 ++ 연산자 작성
+//#include<iostream>
+//using namespace std;
+//
+//class Power {
+//	int kick;
+//	int punch;
+//public:
+//	Power(int kick = 0, int punch = 0) {
+//		this->kick = kick; this->punch = punch;
+//	}
+//	void show();
+//	Power operator++(int x); //후위 ++ 연산자 함수 선언
+//};
+//
+//void Power::show() {
+//	cout << "kick= " << kick << ',' << "punch=" << punch << endl;
+//}
+//Power Power::operator++(int x) {
+//	Power tmp = *this;
+//	kick++;
+//	punch++;
+//	return tmp;
+//}
+//int main() {
+//	Power a(3, 5), b;
+//	a.show();
+//	b.show();
+//	b = a++;  //후위 ++ 연산자 사용
+//	a.show(); //a의 파워는 1 증가됨 
+//	b.show(); //b는 a가 증가되기 이전 상태를 가진다
+//}
+
+//2+a 덧셈을 위한 + 연산자 함수 작성
+
+//Power a(3, 4), b;
+//b = 2 + a;
+//
+//Power operator+(int op1, Power op2) {
+//	Power tmp;
+//	tmp.kick = op1 + op2.kick;
+//	tmp.punch = op1 + op2.punch;
+//	return tmp;
+//}
+
+//예제 7-11. 2+a를 위한 + 연산자 함수를 프렌드로 작성
+//#include<iostream>
+//using namespace std;
+//
+//class Power {
+//	int kick;
+//	int punch;
+//public:
+//	Power(int kick = 0, int punch = 0) {
+//		this->kick = kick; this->punch = punch;
+//	}
+//	void show();
+//	friend Power operator+(int op1, Power op2); //프렌드 선언
+//};
+//
+//void Power::show() {
+//	cout << "kick=" << kick << ',' << "punch=" << punch << endl;
+//}
+//Power operator+(int op1, Power op2) {
+//	Power tmp;
+//	tmp.kick = op1 + op2.kick;
+//	tmp.punch = op1 + op2.punch;
+//	return tmp;
+//}
+//int main() {
+//	Power a(3, 5), b;
+//	a.show();
+//	b.show();
+//	b = 2 + a;
+//	a.show();
+//	b.show();
+//}
+
+//+ 연산자를 외부 프렌드 함수로 구현
+//class Power {
+//	int kick;
+//	int punch;
+//public:
+//	Power(int kick = 0, int punch = 0) {
+//		this->kick = kick;
+//		this->punch = punch;
+//	}
+//	friend Power operator+(Power op1, Power op2);
+//};
+//Power operator+(Power op1, Power op2) {
+//	Power tmp;
+//	tmp.kick = op1.kick + op2.kick;
+//	tmp.punch = op1.kick + op2.punch;
+//	return tmp;
+//}
+
+//예제 7-12.a+b를 위한 연산자 함수를 프렌드로 작성
+//#include<iostream>
+//using namespace std;
+//
+//class Power {
+//	int kick;
+//	int punch;
+//public:
+//	Power(int kick = 0, int punch = 0) {
+//		this->kick = kick; this->punch = punch;
+//	}
+//	void show();
+//	friend Power operator+(Power op1, Power op2);
+//};
+//void Power::show() {
+//	cout << "kick=" << kick << ',' << "punch=" << punch << endl;
+//}
+//
+//Power operator+(Power op1, Power op2) {
+//	Power tmp;
+//	tmp.kick = op1.kick + op2.kick;
+//	tmp.punch = op1.punch + op2.punch;
+//	return tmp;
+//}
+//int main() {
+//	Power a(3, 5), b(4, 6), c;
+//	c = a + b;
+//	a.show();
+//	b.show();
+//	c.show();
+//}
+
+// 단항 연산자 ++를 프렌드로 작성하기
+//전위 연산자
+Power& operator++(Power& op) {
+	op.kick++;
+	op.punch++;
+	return op;
+}

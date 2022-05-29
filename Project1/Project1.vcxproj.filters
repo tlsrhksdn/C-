@@ -18,5 +18,11 @@
     <ClCompile Include="외부 소스\모두의 코드\모두의 코드 4-5.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="완성된 문자열 클래스.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="7장.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
