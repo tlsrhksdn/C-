@@ -594,8 +594,87 @@
 
 // 단항 연산자 ++를 프렌드로 작성하기
 //전위 연산자
-Power& operator++(Power& op) {
-	op.kick++;
-	op.punch++;
-	return op;
-}
+//class Power {
+//	int kick;
+//	int punch;
+//public:
+//	Power power(int kick = 0, int punch = 0) {
+//		this->kick = kick;
+//		this->punch = punch;
+//	}
+//	friend Power& operator++(Power& op);
+//};
+//Power& operator++(Power& op) {
+//	op.kick++;
+//	op.punch++;
+//	return op;
+//}
+
+//예제 7-13.++연산자를 프렌드로 작성한 예
+//#include<iostream>
+//using namespace std;
+//class Power {
+//	int kick;
+//	int punch;
+//public:
+//	Power power(int kick = 0, int punch = 0) {
+//		this->kick = kick;
+//		this->punch = punch;
+//	}
+//	friend Power& operator++(Power& op);
+//	friend Power& operator++(Power& op, int x);
+//	void show();
+//};
+//void Power::show() {
+//	cout << "kick=" << kick << ',' << "punch=" << punch << endl;
+//}
+//Power& operator++(Power& op) {
+//	op.kick++;
+//	op.punch++;
+//	return op;
+//}
+//Power& operator++(Power& op, int x) {
+//	Power tmp = op;
+//	op.kick++;
+//	op.punch++;
+//	return tmp;
+//}
+//int main() {
+//	Power a(3, 5), b;
+//	b = ++a;
+//	a.show(); b.show();
+//	
+//	b = a++;
+//	a.show(); b.show();
+//}
+
+//예제 7-14.참조를 리턴하는 << 연산자 작성
+
+//Power 객체의 kick과 punch에 정수를 더하는 << 연산자를 멤버 함수로 작성하라
+//#include<iostream>
+//using namespace std;
+//
+//class Power {
+//	int kick;
+//	int punch;
+//public:
+//	Power(int ick = 0, int punch = 0) {
+//		this->kick = kick; this->punch = punch;
+//	}
+//	void show();
+//	Power& operator<<(int n);
+//};
+//void Power::show() {
+//	cout << "kick=" << kick << ',' << "punch=" << punch << endl;
+//}
+//Power& Power::operator<<(int n) {
+//	kick += n;
+//	punch += n;
+//	return *this;
+//}
+//int main() {
+//	Power a(1, 2);
+//	a << 3 << 5 << 6;
+//	a.show();
+//}
+
