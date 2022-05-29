@@ -475,17 +475,43 @@
 
 //static 멤버 함수 getMoney()가 non-sattic 멤버변수 money를 접근하는 오류
 
-class PersonError {
-	int money;
-public:
-	static int getMoney() { return money; } //컴파일 오류:static 멤버 함수는 non-static 멤버에 접근할 수 없음
+//class PersonError {
+//	int money;
+//public:
+//	static int getMoney() { return money; } //컴파일 오류:static 멤버 함수는 non-static 멤버에 접근할 수 없음
+//
+//	void setMoney(int money)
+//		this->moeny = money;
+//};
+//int money() {
+//	int n = PersonError::getMoney();
+//
+//	PersonError errorKim;
+//	errorKim.setMoney(100);
+//}
 
-	void setMoney(int money)
-		this->moeny = money;
-};
-int money() {
-	int n = PersonError::getMoney();
+//non-static 멤버함수는 static에 접근 가능
 
-	PersonError errorKim;
-	errorKim.setMoney(100);
-}
+//class Person {
+//public:
+//	double money;  //개인 소유의 돈
+//	static int sharedMoney; //공금
+//
+//	int total() { //non-static 함수는 non-static이나 static 멤버에 모두 접근 가능
+//		return money + sharedMoney;
+//	}
+//};
+
+//static 멤버 함수는 this 사용 불가
+//static 멤버 함수는 객체가 생기기 전부터 호출 가능
+//static 멤버 함수에서 this 사용 불가
+//class Person {
+//public:
+//	double money; //개인 소유의 돈
+//	static int sharedMoney; //공금
+//
+//	static void addShared(int n) { //static 함수에서 this 사용불가
+//		this->sharedMoney += n; //this를 사용하므로 컴파일 오류
+//	}
+//};
+
