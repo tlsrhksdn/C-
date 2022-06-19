@@ -1,18 +1,16 @@
 //#include<iostream>
-//#include<cstring>
+//#include<string.h>
 //
 //class MyString {
-//	char* string_content;  //문자열 데이터를 가리키는 포인터
-//	int string_length;     //문자열 길이
-//	int memory_capacity;   //현재 할당된 용량
+//	char* string_content;
+//	int string_length;
+//	int memory_capacity;
 //
 //public:
-//	//문자 하나로 생성
 //	MyString(char c);
-//	//문자열로부터 생성
 //	MyString(const char* str);
-//	//복사 생성자
 //	MyString(const MyString& str);
+//
 //	~MyString();
 //
 //	int length() const;
@@ -21,4 +19,21 @@
 //
 //	void print() const;
 //	void printIn() const;
+//
+//	MyString& assign(const MyString& str);
+//	MyString& assign(const char* str);
+//
+//	char at(int i) const;
+//
+//	MyString& insert(int loc, const MyString& str);
+//	MyString& insert(int loc, const char* str);
+//	MyString& insert(int loc, char c);
+//
+//	MyString& erase(int loc, int num);
+//
+//	int find(int find_from, const MyString& str)const;
+//	int find(int find_from, const char* str)const;
+//	int find(int find_from, char c)const;
+//
+//	int compare(const MyString& str)const;
 //};
