@@ -15,40 +15,14 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="외부 소스\모두의 코드\모두의 코드 4-5.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="완성된 문자열 클래스.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="7장.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="8장_상속.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="string 함수 연습.cpp">
+    <ClCompile Include="utils.h">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="모두의 코드 5-1.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="모두의 코드 6-1.cpp">
+    <ClCompile Include="utils.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="예제 6-2.sum() 함수 중복 연습.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="7-6_ + 연산자 작성(b=a+2).cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="상속 예제.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="6-4.디폴트 매개 변수를 가진 함수 만들기 연습.cpp">
-      <Filter>소스 파일</Filter>
-    </None>
   </ItemGroup>
 </Project>
